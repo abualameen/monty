@@ -1,9 +1,10 @@
 #include "monty.h"
 #include <stdio.h>
+int supress(void);
 /**
  * main - entry point of function
- * argc - argu count
- * argv - argu vector
+ * @argc: argu count
+ * @argv: argu vector
  * Return: 0
  */
 
@@ -17,12 +18,12 @@ int main(int argc,  char *argv[])
 	stack_t *stack = NULL;
 	char *opcode;
 
-	file_name = argv[1];	
+	file_name = argv[1];
 	file = fopen(file_name, "r");
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
-		return (EXIT_FAILURE);	
+		return (EXIT_FAILURE);
 	}
 	if (file == NULL)
 	{
@@ -35,7 +36,8 @@ int main(int argc,  char *argv[])
 		if (opcode != NULL && opcode[0] != '#')
 		{
 			void (*func_opcode)(stack_t **, unsigned int) = get_func_opcode(opcode);
-			if (func_opcode == NULL)
+
+			(func_opcode == NULL)
 			{
 				fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
 				fclose(file);
@@ -54,5 +56,14 @@ int main(int argc,  char *argv[])
 	fclose(file);
 	free(lineptr);
 	free(stack);
-	return EXIT_SUCCESS;
+	return (EXIT_SUCCESS);
+}
+/**
+ * supress - supreses
+ * Return: 0
+ */
+
+int supress(void)
+{
+	return (0);
 }
