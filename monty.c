@@ -37,7 +37,7 @@ int main(int argc,  char *argv[])
 		{
 			void (*func_opcode)(stack_t **, unsigned int) = get_func_opcode(opcode);
 
-			(func_opcode == NULL)
+			if (func_opcode == NULL)
 			{
 				fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
 				fclose(file);
