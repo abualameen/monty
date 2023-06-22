@@ -1,6 +1,5 @@
 #include "monty.h"
-#include <stdio.h>
-/*stack_t *stack = NULL;*/
+stack_t *stack = NULL;
 int supress(void);
 /**
  * main - entry point of function
