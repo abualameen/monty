@@ -52,7 +52,7 @@ void (*get_func_opcode(const char *opcodee))(stack_t **, unsigned int);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 int is_numb(char *str);
-extern stack_t *stack;
+/*extern stack_t *stack;*/
 
 
 

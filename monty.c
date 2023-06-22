@@ -1,5 +1,5 @@
 #include "monty.h"
-stack_t *stack = NULL;
+/*stack_t *stack = NULL;*/
 int supress(void);
 /**
  * main - entry point of function
@@ -16,6 +16,7 @@ int main(int argc,  char *argv[])
 	size_t size_lineptr = 0;
 	unsigned int line_number = 1;
 	char *opcode;
+	stack_t *stack = NULL;
 
 	file_name = argv[1];
 	file = fopen(file_name, "r");
