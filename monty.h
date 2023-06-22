@@ -54,7 +54,7 @@ void pall(stack_t **stack, unsigned int line_number);
 int is_numb(char *str);
 /*extern stack_t *stack;*/
 void free_stack(stack_t **stack);
-
+void pint(stack_t **stack, unsigned int line_number);
 
 
 #endif

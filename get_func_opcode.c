@@ -10,6 +10,7 @@ void (*get_func_opcode(const char *opcodee))(stack_t **, unsigned int)
 	instruction_t opcodes[] = {
 	{"push", push},
 	{"pall", pall},
+	{"pint", pint},
 	{NULL, NULL}
 	};
 	int x = 0;
