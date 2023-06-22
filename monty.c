@@ -17,7 +17,13 @@ int main(int argc,  char *argv[])
 	size_t size_lineptr = 0;
 	unsigned int line_number = 1;
 	char *opcode;
-
+	int k, seen;
+	
+	instruction_t instructions[] = {
+        {"push", push},
+        {"pall", pall},
+        {NULL, NULL} 
+    	};
 	file_name = argv[1];
 	file = fopen(file_name, "r");
 	if (argc != 2)
@@ -32,30 +38,31 @@ int main(int argc,  char *argv[])
 	}
 	while (getline(&lineptr, &size_lineptr, file) != -1)
 	{
-		opcode = strtok(lineptr, " \n");
-		if (opcode != NULL && opcode[0] != '#')
+		opcode = strtok(lineptr, " \t\n");
+		if (opcode != NULL)
 		{
-			void (*func_opcode)(stack_t **, unsigned int) = get_func_opcode(opcode);
-
-			if (func_opcode == NULL)
+			seen = 0;
+			for (k = 0; instructions[k].opcode != NULL; k++)
 			{
-				fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
-				fclose(file);
-				free(lineptr);
-				free(stack);
-
-				return (EXIT_FAILURE);
+				if (strcmp(opcode, instructions[k].opcode) == 0)
+				{
+					instructions[k].f(&stack, line_number);
+					seen = 1;
+					break;
+				}
 			}
-			else
+			if (!seen)
 			{
-				func_opcode(&stack, line_number);
+				fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
+				free(lineptr);
+				fclose(file);
+				return (EXIT_FAILURE);	
 			}
 		}
 		line_number++;
 	}
 	fclose(file);
 	free(lineptr);
-	free(stack);
 	return (EXIT_SUCCESS);
 }
 /**

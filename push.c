@@ -11,11 +11,11 @@ void push(stack_t **stack, unsigned int line_number)
 	int data;
 	stack_t *new_node;
 
-	if (argu == NULL || !is_numb(argu))
+	/*if (argu == NULL || !is_numb(argu))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
-	}
+	}*/
 	data = atoi(argu);
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
@@ -31,4 +31,14 @@ void push(stack_t **stack, unsigned int line_number)
 		(*stack)->prev = new_node;
 	}
 	*stack = new_node;
+	/*printf("%d\n", new_node->n);*/
+	if (argu == NULL || !is_numb(argu))
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	else
+	{
+		printf("%d\n", new_node->n);
+	}
 }
