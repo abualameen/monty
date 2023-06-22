@@ -1,4 +1,5 @@
 #include "monty.h"
+int if_valid_int(const char *arg);
 /**
  * push - adds mem to stack
  * @stack: rep the head of a doubly links list in resp of stack
@@ -10,12 +11,13 @@ void push(stack_t **stack, unsigned int line_number)
 	char *argu = strtok(NULL, " \n");
 	int data;
 	stack_t *new_node;
-
-	/*if (argu == NULL || !is_numb(argu))
+	
+	/*if (argu == NULL || ((!isdigit(*argu)) && *argu != '-' && *argu != '+'))*/
+	if (argu == NULL || !if_valid_int(argu))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
-	}*/
+	}
 	data = atoi(argu);
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
@@ -23,16 +25,34 @@ void push(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	new_node->n = data;
+	/*new_node->n = data;
 	new_node->prev = NULL;
-	new_node->next = *stack;
-	if (*stack != NULL)
+	new_node->next = *stack;*/
+	if (*stack == NULL)
+	{
+		new_node->n = data;
+		new_node->next = NULL;
+		new_node->prev = NULL;
+		*stack = new_node;
+	}
+	else
+	{
+		new_node->n = data;
+		new_node->next = *stack;
+		new_node->prev = NULL;
+		if (*stack != NULL)
+		{
+			(*stack)->prev = new_node;
+			*stack = new_node;
+		}
+	}
+	/*if (*stack != NULL)
 	{
 		(*stack)->prev = new_node;
 	}
-	*stack = new_node;
+	*stack = new_node;*/
 	/*printf("%d\n", new_node->n);*/
-	if (argu == NULL || !is_numb(argu))
+	/*if (argu == NULL || !is_numb(argu))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
@@ -40,5 +60,28 @@ void push(stack_t **stack, unsigned int line_number)
 	else if (argu != NULL || !is_numb(argu))
 	{
 		printf("%d\n", new_node->n);
-	}
+	}*/
 }
+
+/**
+ * if_valid_int - checks for valid int
+ * @arg: argument to check
+ * Return: 0
+ */
+int if_valid_int(const char *arg)
+{
+	if (*arg == '-' || *arg == '+')
+	{
+		arg++;
+	}
+	while (*arg)
+	{
+		if (!isdigit(*arg))
+		{
+			return (0);
+		}
+		arg++;
+	}
+	return (1);
+}
+
