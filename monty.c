@@ -16,7 +16,6 @@ int main(int argc,  char *argv[])
 	char *lineptr = NULL;
 	size_t size_lineptr = 0;
 	unsigned int line_number = 1;
-	stack_t *stack = NULL;
 	char *opcode;
 
 	file_name = argv[1];
