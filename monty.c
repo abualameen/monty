@@ -1,7 +1,7 @@
 #include "monty.h"
 #include <stdio.h>
 stack_t *stack = NULL;
-int supress(void);
+/*int supress(void);*/
 /**
  * main - entry point of function
  * @argc: argu count
@@ -62,7 +62,7 @@ int main(int argc,  char *argv[])
  * Return: 0
  */
 
-int supress(void)
+/*int supress(void)
 {
 	return (0);
-}
+}*/
