@@ -11,7 +11,7 @@ void free_stack(stack_t **stack)
 	stack_t *wait;
 
 	latest = *stack;
-	
+
 	if (*stack == NULL)
 	{
 		return;
@@ -23,4 +23,3 @@ void free_stack(stack_t **stack)
 		latest = wait;
 	}
 }
- 
