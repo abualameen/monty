@@ -42,7 +42,7 @@ int main(int argc,  char *argv[])
 				fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
 				fclose(file);
 				free(lineptr);
-				free(stack);
+				free_stack(&stack);
 				return (EXIT_FAILURE);
 			}
 			else
@@ -54,7 +54,7 @@ int main(int argc,  char *argv[])
 	}
 	fclose(file);
 	free(lineptr);
-	free(stack);
+	free_stack(&stack);
 	return (EXIT_SUCCESS);
 }
 /**

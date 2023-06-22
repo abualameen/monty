@@ -42,6 +42,7 @@ void push(stack_t **stack, unsigned int line_number)
 			*stack = new_node;
 		}
 	}
+	/*free(new_node);*/
 }
 
 /**
