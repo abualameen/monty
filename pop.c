@@ -16,11 +16,12 @@ void pop(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	if (latest == NULL)
+	/*if (latest == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop, lates is empty\n", line_number);
-	}
+	}*/
 	save = latest->next;
 	free(latest);
 	latest = save;
+	*stack = save;
 }
