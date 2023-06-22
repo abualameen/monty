@@ -11,7 +11,7 @@ void push(stack_t **stack, unsigned int line_number)
 	char *argu = strtok(NULL, " \n");
 	int data;
 	stack_t *new_node;
-	
+
 	if (argu == NULL || !if_valid_int(argu))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
