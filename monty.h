@@ -50,5 +50,5 @@ void (*get_func_opcode(const char *opcodee))(stack_t **, unsigned int);
 /*void (*func_opcode)(stack_t **, unsigned int);*/
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
-
+extern stack_t *stack;
 #endif

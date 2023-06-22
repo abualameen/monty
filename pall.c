@@ -11,6 +11,10 @@ void pall(stack_t **stack, unsigned int line_number)
 	stack_t *latest = *stack;
 	(void)line_number;
 
+	if (*stack == NULL)
+	{
+		return;
+	}
 	while (latest != NULL)
 	{
 		printf("%d\n", latest->n);
