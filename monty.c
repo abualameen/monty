@@ -1,13 +1,11 @@
 #include "monty.h"
-/*stack_t *stack = NULL;*/
-int supress(void);
+int sups(void);
 /**
  * main - entry point of function
  * @argc: argu count
  * @argv: argu vector
  * Return: 0
  */
-
 int main(int argc,  char *argv[])
 {
 	const char *file_name;
@@ -58,11 +56,10 @@ int main(int argc,  char *argv[])
 	return (EXIT_SUCCESS);
 }
 /**
- * supress - supreses
+ * sups - relax
  * Return: 0
  */
-
-int supress(void)
+int sups(void)
 {
 	return (0);
 }

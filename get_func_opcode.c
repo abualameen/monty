@@ -19,6 +19,7 @@ void (*get_func_opcode(const char *opcodee))(stack_t **, unsigned int)
 	{"divi", divi},
 	{"mul", mul},
 	{"mod", mod},
+	{"pchar", pchar},
 	{NULL, NULL}
 	};
 	int x = 0;

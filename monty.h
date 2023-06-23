@@ -6,9 +6,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <ctype.h>
-/*#include <sys/types.h>
-#include <sys/wait.h>
-#include <ctype.h>*/
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -41,18 +39,11 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/*int _strlen(char *s);
-char *_strcpy(char *dest, char *src);
-char *_strcat(char *dest, char *src);
-char *fgett(char *buffer, int buffersize, FILE *stream);
-size_t _get_line(char **lineptr, size_t *n, FILE *stream);*/
+
 ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 void (*get_func_opcode(const char *opcodee))(stack_t **, unsigned int);
-/*void (*func_opcode)(stack_t **, unsigned int);*/
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
-int is_numb(char *str);
-/*extern stack_t *stack;*/
 void free_stack(stack_t **stack);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
@@ -63,7 +54,7 @@ void sub(stack_t **stack, unsigned int line_number);
 void divi(stack_t **stack, unsigned int line_number);
 void mul(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
-
+void pchar(stack_t **stack, unsigned int line_number);
 
 
 #endif
