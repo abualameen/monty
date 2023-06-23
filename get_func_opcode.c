@@ -20,6 +20,7 @@ void (*get_func_opcode(const char *opcodee))(stack_t **, unsigned int)
 	{"mul", mul},
 	{"mod", mod},
 	{"pchar", pchar},
+	{"pstr", pstr},
 	{NULL, NULL}
 	};
 	int x = 0;
