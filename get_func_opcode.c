@@ -14,6 +14,7 @@ void (*get_func_opcode(const char *opcodee))(stack_t **, unsigned int)
 	{"pop", pop},
 	{"swap", swap},
 	{"add", add},
+	{"nop", nop},
 	{NULL, NULL}
 	};
 	int x = 0;
